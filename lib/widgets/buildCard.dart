@@ -54,7 +54,7 @@ class BuildCard extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                 child: Text(
                   'Start Now',
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.josefinSans(
                       textStyle: TextStyle(
                     fontSize: 16,
                     letterSpacing: 0.8,
