@@ -33,7 +33,7 @@ class AmeliorateDSA extends StatelessWidget {
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 25,
-                    letterSpacing: 1.2,
+                    letterSpacing: 0.82,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),
