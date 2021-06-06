@@ -2,10 +2,32 @@ import 'package:ameliorate_dsa/widgets/buildCard.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../constants.dart';
 
-class AmeliorateDSA extends StatelessWidget {
+class AmeliorateDSA extends StatefulWidget {
+  @override
+  _AmeliorateDSAState createState() => _AmeliorateDSAState();
+}
+
+class _AmeliorateDSAState extends State<AmeliorateDSA> {
+  final CollectionReference topics =
+      FirebaseFirestore.instance.collection('topics');
+  List<Widget> dfs = [];
+  @override
+  void initState() {
+    super.initState();
+
+    topics.get().then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((element) {
+        // print(element['name']);
+        String temp = element['name'];
+        dfs.add(BuildCard(topicName: temp));
+      });
+      setState(() => dfs);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     int totquest = 30;
@@ -33,7 +55,7 @@ class AmeliorateDSA extends StatelessWidget {
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 25,
-                    letterSpacing: 0.82,
+                    letterSpacing: 0.6,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),
@@ -61,22 +83,8 @@ class AmeliorateDSA extends StatelessWidget {
                 runSpacing: 20.0,
                 alignment: WrapAlignment.spaceAround,
                 crossAxisAlignment: WrapCrossAlignment.center,
-                children: [
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                  BuildCard(),
-                ],
+                // children: [abc()],
+                children: dfs,
               )
             ],
           ),
@@ -84,4 +92,6 @@ class AmeliorateDSA extends StatelessWidget {
       ),
     );
   }
+
+  //dsa
 }

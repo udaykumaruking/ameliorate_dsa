@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../constants.dart';
 
-// ignore: must_be_immutable
 class BuildCard extends StatelessWidget {
+  final String topicName;
+  BuildCard({@required this.topicName});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +21,7 @@ class BuildCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Stacks and Queues',
+            '$topicName',
             textAlign: TextAlign.center,
             style: GoogleFonts.jost(
                 textStyle: TextStyle(
