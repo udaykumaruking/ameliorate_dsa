@@ -4,10 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
 import 'buildSizedBox.dart';
 
+// ignore: must_be_immutable
 class BuildCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 200,
       width: 300,
       decoration: BoxDecoration(
         color: kVoilet,
@@ -16,9 +18,11 @@ class BuildCard extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
       child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Array',
+              'Stacks and Queues',
+              textAlign: TextAlign.center,
               style: GoogleFonts.jost(
                   textStyle: TextStyle(
                 color: Colors.white,
@@ -49,7 +53,7 @@ class BuildCard extends StatelessWidget {
                       Color.fromRGBO(101, 83, 178, 1)),
                   foregroundColor: MaterialStateProperty.all(Colors.white),
                   elevation: MaterialStateProperty.all(0)),
-              onPressed: () {},
+              onPressed: () => {},
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
                 child: Text(

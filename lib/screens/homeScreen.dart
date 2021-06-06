@@ -1,5 +1,6 @@
 import 'package:ameliorate_dsa/widgets/buildCard.dart';
 import 'package:ameliorate_dsa/widgets/buildSizedBox.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +61,8 @@ class AmeliorateDSA extends StatelessWidget {
                 Wrap(
                   spacing: 20.0, // gap between adjacent chips
                   runSpacing: 20.0,
-
+                  alignment: WrapAlignment.spaceAround,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   children: [
                     BuildCard(),
                     BuildCard(),
