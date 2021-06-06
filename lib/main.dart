@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     int totquest = 30;
     return MaterialApp(
+      title: 'Ameliorate DSA',
       home: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
