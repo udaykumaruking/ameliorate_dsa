@@ -1,6 +1,8 @@
 import 'package:ameliorate_dsa/constants.dart';
 import 'package:ameliorate_dsa/widgets/buildQuestionCard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,9 +35,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
     });
   }
 
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: <NavigatorObserver>[observer],
       home: Scaffold(
         body: SingleChildScrollView(
           child: Container(
