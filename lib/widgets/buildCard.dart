@@ -65,6 +65,7 @@ class BuildCard extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => QuestionScreen(
                             id: id,
+                            topicName: topicName,
                           )))
             },
             child: Padding(

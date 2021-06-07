@@ -28,6 +28,7 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
           id: element.id,
         ));
       });
+
       setState(() => cards);
     });
   }
