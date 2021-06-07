@@ -5,7 +5,8 @@ import '../constants.dart';
 
 class BuildCard extends StatelessWidget {
   final String topicName;
-  BuildCard({@required this.topicName});
+  final int noOfQuestions;
+  BuildCard({@required this.topicName, @required this.noOfQuestions});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class BuildCard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Total Questions: 40',
+            'Total Questions: $noOfQuestions',
             style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
               color: Colors.white,

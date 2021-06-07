@@ -21,8 +21,11 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
     topics.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((element) {
         // print(element['name']);
-        String temp = element['name'];
-        dfs.add(BuildCard(topicName: temp));
+
+        dfs.add(BuildCard(
+          topicName: element['name'],
+          noOfQuestions: element['noOfQuestions'],
+        ));
       });
       setState(() => dfs);
     });
@@ -83,7 +86,6 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
                 runSpacing: 20.0,
                 alignment: WrapAlignment.spaceAround,
                 crossAxisAlignment: WrapCrossAlignment.center,
-                // children: [abc()],
                 children: dfs,
               )
             ],
