@@ -13,7 +13,7 @@ class AmeliorateDSA extends StatefulWidget {
 class _AmeliorateDSAState extends State<AmeliorateDSA> {
   final CollectionReference topics =
       FirebaseFirestore.instance.collection('topics');
-  List<Widget> dfs = [];
+  List<Widget> cards = [];
   @override
   void initState() {
     super.initState();
@@ -22,18 +22,18 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
       querySnapshot.docs.forEach((element) {
         // print(element['name']);
 
-        dfs.add(BuildCard(
+        cards.add(BuildCard(
           topicName: element['name'],
           noOfQuestions: element['noOfQuestions'],
+          id: element.id,
         ));
       });
-      setState(() => dfs);
+      setState(() => cards);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    int totquest = 30;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -68,7 +68,7 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
                 height: 15,
               ),
               Text(
-                'Total Questions: $totquest',
+                'Total Topics: ${cards.length}',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.josefinSans(
                   textStyle: TextStyle(
@@ -86,7 +86,7 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
                 runSpacing: 20.0,
                 alignment: WrapAlignment.spaceAround,
                 crossAxisAlignment: WrapCrossAlignment.center,
-                children: dfs,
+                children: cards,
               )
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:ameliorate_dsa/screens/questionsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,7 +7,11 @@ import '../constants.dart';
 class BuildCard extends StatelessWidget {
   final String topicName;
   final int noOfQuestions;
-  BuildCard({@required this.topicName, @required this.noOfQuestions});
+  final String id;
+  BuildCard(
+      {@required this.topicName,
+      @required this.noOfQuestions,
+      @required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,14 @@ class BuildCard extends StatelessWidget {
                     Color.fromRGBO(101, 83, 178, 1)),
                 foregroundColor: MaterialStateProperty.all(Colors.white),
                 elevation: MaterialStateProperty.all(0)),
-            onPressed: () => {},
+            onPressed: () => {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => QuestionScreen(
+                            id: id,
+                          )))
+            },
             child: Padding(
               padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
               child: Text(
