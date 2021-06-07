@@ -1,4 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ameliorate_dsa/constants.dart';
+import 'package:ameliorate_dsa/widgets/buildQuestionCard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -38,32 +39,87 @@ class _QuestionScreenState extends State<QuestionScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          child: Column(
-            children: [
-              Text('${widget.id}, dsfjh ${widget.topicName}'),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromRGBO(101, 83, 178, 1)),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                    elevation: MaterialStateProperty.all(0)),
-                onPressed: () => {Navigator.pop(context)},
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-                  child: Text(
-                    'View All Topics',
-                    style: GoogleFonts.josefinSans(
-                        textStyle: TextStyle(
-                      fontSize: 16,
-                      letterSpacing: 0.8,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    )),
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Text(
+                  'Ameliorate DSA',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.jost(
+                    textStyle: TextStyle(
+                      color: kVoilet,
+                      fontSize: 48,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        'Topics/',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                            fontSize: 25,
+                            letterSpacing: 0.6,
+                            fontWeight: FontWeight.w500,
+                            color: kVoilet,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      '${widget.topicName}',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        textStyle: TextStyle(
+                          fontSize: 25,
+                          letterSpacing: 0.6,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  'Total Questions: ',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.josefinSans(
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Wrap(
+                  spacing: 20.0, // gap between adjacent chips
+                  runSpacing: 20.0,
+                  alignment: WrapAlignment.spaceAround,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    BuildQuestionCard(),
+                    BuildQuestionCard(),
+                    BuildQuestionCard(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
