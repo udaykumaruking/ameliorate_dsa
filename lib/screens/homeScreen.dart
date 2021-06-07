@@ -14,6 +14,7 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
   final CollectionReference topics =
       FirebaseFirestore.instance.collection('topics');
   List<Widget> cards = [];
+
   @override
   void initState() {
     super.initState();
@@ -31,6 +32,11 @@ class _AmeliorateDSAState extends State<AmeliorateDSA> {
 
       setState(() => cards);
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
