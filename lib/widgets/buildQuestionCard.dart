@@ -1,10 +1,14 @@
 import 'package:ameliorate_dsa/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
 
 class BuildQuestionCard extends StatelessWidget {
+  final String question;
+  final String url;
+  BuildQuestionCard({@required this.question, @required this.url});
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -31,7 +35,7 @@ class BuildQuestionCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo',
+              '$question',
               textAlign: TextAlign.center,
               style: GoogleFonts.jost(
                 textStyle: TextStyle(
@@ -44,18 +48,6 @@ class BuildQuestionCard extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Text(
-              'Question ID:',
-              style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                      letterSpacing: 0.5)),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
             ElevatedButton(
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(
@@ -63,16 +55,7 @@ class BuildQuestionCard extends StatelessWidget {
                   foregroundColor: MaterialStateProperty.all(Colors.white),
                   elevation: MaterialStateProperty.all(0)),
               onPressed: () {
-                if (Navigator.canPop(context)) {
-                  Navigator.pop(context);
-                } else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AmeliorateDSA(),
-                    ),
-                  );
-                }
+                launch(url);
               },
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
