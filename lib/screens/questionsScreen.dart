@@ -1,4 +1,5 @@
 import 'package:ameliorate_dsa/constants.dart';
+import 'package:ameliorate_dsa/widgets/buildFABDesktop.dart';
 import 'package:ameliorate_dsa/widgets/buildQuestionCard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -43,86 +44,88 @@ class _QuestionScreenState extends State<QuestionScreen> {
     return MaterialApp(
       navigatorObservers: <NavigatorObserver>[observer],
       home: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
-            alignment: Alignment.center,
-            child: Column(
-              children: [
-                Text(
-                  'Ameliorate DSA',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.jost(
-                    textStyle: TextStyle(
-                      color: kVoilet,
-                      fontSize: 48,
-                      fontWeight: FontWeight.w700,
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
+              alignment: Alignment.center,
+              child: Column(
+                children: [
+                  Text(
+                    'Ameliorate DSA',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.jost(
+                      textStyle: TextStyle(
+                        color: kVoilet,
+                        fontSize: 48,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        'Topics/',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          'Topics/',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontSize: 25,
+                              letterSpacing: 0.6,
+                              fontWeight: FontWeight.w500,
+                              color: kVoilet,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '${widget.topicName}',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                           textStyle: TextStyle(
                             fontSize: 25,
                             letterSpacing: 0.6,
-                            fontWeight: FontWeight.w500,
-                            color: kVoilet,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
                           ),
                         ),
                       ),
-                    ),
-                    Text(
-                      '${widget.topicName}',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                          fontSize: 25,
-                          letterSpacing: 0.6,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Total Questions: ',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.josefinSans(
+                      textStyle: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
                       ),
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'Total Questions: ',
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.josefinSans(
-                    textStyle: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Wrap(
-                  spacing: 20.0, // gap between adjacent chips
-                  runSpacing: 20.0,
-                  alignment: WrapAlignment.spaceAround,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: cards,
-                ),
-              ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Wrap(
+                    spacing: 20.0, // gap between adjacent chips
+                    runSpacing: 20.0,
+                    alignment: WrapAlignment.spaceAround,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: cards,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: BuildFAB()),
     );
   }
 }
