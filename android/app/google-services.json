@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "490441699531",
+    "firebase_url": "https://ameliorate-dsa-default-rtdb.firebaseio.com",
+    "project_id": "ameliorate-dsa",
+    "storage_bucket": "ameliorate-dsa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490441699531:android:bfa7994b9273cec6f5ab4e",
+        "android_client_info": {
+          "package_name": "com.example.ameliorate_dsa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490441699531-m93iu3bn41t6sonbrdopos2klkigednu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjybrsdn9yS10-qaDTDOzS0IOmzIKev6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490441699531-m93iu3bn41t6sonbrdopos2klkigednu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
